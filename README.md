@@ -1,95 +1,226 @@
-รายวิชา: Design and Analysis of Algorithms  
-หัวข้อ: Array, Stack, Queue
+3.ชื่อโปรแกรม: โปรแกรมตรวจสอบเลขคู่หรือเลขคี่ (Even or Odd Number Checker)
+วัตถุประสงค์: รับค่าตัวเลขจำนวนเต็มจากผู้ใช้ แล้วตรวจสอบว่าเป็นเลขคู่หรือเลขคี่
+วิธีการทำงาน:
+รับค่าตัวเลขจากผู้ใช้
+นำตัวเลขไปหารด้วย 2
+ถ้าเศษจากการหาร (number % 2) เท่ากับ 0 จะแสดง Even number
+ถ้าเศษไม่เท่ากับ 0 จะแสดง Odd number
+ตัวอย่างการใช้งาน:
+Enter number: 8
+Even number
 
-วัตถุประสงค์
-โปรเจกต์นี้จัดทำขึ้นเพื่อทบทวนการใช้โครงสร้างข้อมูลพื้นฐานในภาษา Java ได้แก่
-- Array
-- Stack
-- Queue
+4.# โปรแกรมตรวจสอบผลคะแนน (Score Result Program)
 
-AlgorithmReview/
-│
-├── src/
-│ ├── ArrayCaseStudy.java
-│ ├── StackCaseStudy.java
-│ └── QueueCaseStudy.java
+## คำอธิบาย (Description)
 
-Case Study 1: Array (วิเคราะห์คะแนนนักศึกษา)
+โปรแกรมนี้รับคะแนนสอบกลางภาคและคะแนนสอบปลายภาคจากผู้ใช้ จากนั้นคำนวณคะแนนรวมและตรวจสอบว่านักศึกษาผ่านหรือไม่ผ่าน
 
-## แนวคิด
-ใช้ Array เก็บคะแนนนักศึกษา 10 คน และคำนวณค่าสถิติ
+## เงื่อนไขของโปรแกรม (Program Conditions)
 
-```java
-int[] scores = {6, 8, 4, 9, 7, 5, 10, 3, 8, 2};
+* รับคะแนนสอบกลางภาค
+* รับคะแนนสอบปลายภาค
+* คำนวณคะแนนรวม
+* หากคะแนนรวมตั้งแต่ 50 คะแนนขึ้นไป ให้แสดงคำว่า **Pass**
+* หากคะแนนรวมน้อยกว่า 50 คะแนน ให้แสดงคำว่า **Fail**
 
-Output ตัวอย่าง
-thiraphat@MacBook-Air--Thiraphat CSD2103_2570 %  /usr/bin/env /Library/Java/JavaVirtualMachines
-/jdk-24.jdk/Contents/Home/bin/java -XX:+ShowCodeDetailsInExceptionMessages -cp /Users/thiraphat
-/Library/Application\ Support/Code/User/workspaceStorage/bab186380cfd73205b97ff91561f2e6e/redha
-t.java/jdt_ws/CSD2103_2570_4434e8db/bin ArrayCaseStudy 
-Total Score : 62
-Average Score : 6.2
-Highest Score : 10
-Lowest Score : 2
-Students with score >= 7 : 5
+## วิธีการทำงานของโปรแกรม (How it works)
 
-Students needing review
-Student 3 Score = 4
-Student 8 Score = 3
-Student 10 Score = 2
+1. ผู้ใช้ป้อนคะแนนสอบกลางภาค
+2. ผู้ใช้ป้อนคะแนนสอบปลายภาค
+3. โปรแกรมคำนวณคะแนนรวมโดยนำคะแนนทั้งสองส่วนมาบวกกัน
+4. โปรแกรมตรวจสอบคะแนนรวม
 
-Time Complexity : O(n)
+   * หากคะแนนรวมมากกว่าหรือเท่ากับ 50 คะแนน จะแสดงคำว่า **Pass**
+   * หากคะแนนรวมน้อยกว่า 50 คะแนน จะแสดงคำว่า **Fail**
 
-Case Study 2: Stack (Undo System)
-แนวคิด ใช้ Stack จัดการคำสั่งแบบ LIFO (Last In First Out)
+## ตัวอย่างการทำงาน (Example)
 
-คำสั่งที่ใช้
-push() → เพิ่มคำสั่ง
-pop() → Undo คำสั่งล่าสุด
-isEmpty() → ตรวจสอบก่อน pop
+ข้อมูลนำเข้า (Input)
 
-Output ตัวอย่าง
-thiraphat@MacBook-Air--Thiraphat CSD2103_2570 %  /usr/bin/env /Library/Java/JavaVirtualMachines
-/jdk-24.jdk/Contents/Home/bin/java -XX:+ShowCodeDetailsInExceptionMessages -cp /Users/thiraphat
-/Library/Application\ Support/Code/User/workspaceStorage/bab186380cfd73205b97ff91561f2e6e/redha
-t.java/jdt_ws/CSD2103_2570_4434e8db/bin StackCaseStudy 
-Current Stack
-[Type Data, Type Structure, Delete Structure, Type Algorithm, Type Java]
+* คะแนนกลางภาค = 25
+* คะแนนปลายภาค = 30
 
-Undo Operation
-Undo 1: Type Java
-Undo 2: Type Algorithm
+ผลลัพธ์ (Output)
 
-Undo Summary
-Last command undone: Type Java
-Second last command undone: Type Algorithm
+* คะแนนรวม = 55
+* Pass
 
-Stack After Undo
-[Type Data, Type Structure, Delete Structure]
+5.# Maximum Number Program
 
-Safety Check
-Stack is not empty
+## Description
 
-LIFO Explanation
-Stack uses LIFO (Last In First Out)
-The last command added is the first one removed.
-Example: 'Type Java' is removed first, then 'Type Algorithm'
+โปรแกรมนี้รับตัวเลขจำนวนเต็ม 3 จำนวนจากผู้ใช้ จากนั้นเปรียบเทียบค่าทั้งสามจำนวนและแสดงค่าที่มากที่สุด
 
-Time Complexity
-push()    : O(1)
-pop()     : O(1)
-peek()    : O(1)
-isEmpty() : O(1)
+## Program Conditions
 
-Case Study 3: Queue (ระบบผู้ป่วย)
-แนวคิด ใช้ Queue จัดการผู้ป่วยแบบ FIFO (First In First Out)
+* รับตัวเลขจำนวนเต็ม 3 จำนวน
+* เปรียบเทียบค่าของตัวเลขทั้งสามจำนวน
+* แสดงค่าที่มากที่สุด
 
-ลำดับเริ่มต้น
+## How it works
 
-P001, P002, P003, P004, P005
+1. ผู้ใช้ป้อนตัวเลขจำนวนเต็ม 3 จำนวน
+2. โปรแกรมกำหนดให้ตัวเลขตัวแรกเป็นค่ามากที่สุดเริ่มต้น
+3. โปรแกรมเปรียบเทียบตัวเลขตัวที่สองกับค่ามากที่สุด
+4. โปรแกรมเปรียบเทียบตัวเลขตัวที่สามกับค่ามากที่สุด
+5. โปรแกรมแสดงค่าที่มากที่สุดออกทางหน้าจอ
 
-เหตุการณ์
-P001 และ P002 ได้รับบริการแล้ว
-เพิ่ม P006 และ P007
-ตรวจสอบคนถัดไปด้วย peek()
-ตรวจสอบจำนวนคิวด้วย size()
+## Example
+
+Input:
+
+* Number 1 = 12
+* Number 2 = 25
+* Number 3 = 9
+
+Output:
+
+* Maximum number = 25
+
+
+Enter number 1: 12
+Enter number 2: 25
+Enter number 3: 9
+Maximum number = 25
+
+6.# Student Score Array Program
+
+## Description
+
+โปรแกรมนี้ใช้ Array สำหรับเก็บคะแนนของนักศึกษา 5 คน จากนั้นคำนวณคะแนนรวมและค่าเฉลี่ยของคะแนนทั้งหมด
+
+## Program Conditions
+
+* สร้าง Array เพื่อเก็บคะแนนจำนวน 5 ค่า
+* รับคะแนนจากผู้ใช้ทีละคน
+* คำนวณคะแนนรวมของนักศึกษาทั้งหมด
+* คำนวณค่าเฉลี่ยของคะแนน
+* แสดงคะแนนรวมและค่าเฉลี่ย
+
+## How it works
+
+1. โปรแกรมสร้าง Array ขนาด 5 ช่องสำหรับเก็บคะแนน
+
+2. ผู้ใช้ป้อนคะแนนของนักศึกษาแต่ละคน
+
+3. โปรแกรมนำคะแนนทั้งหมดมารวมกันเพื่อหาคะแนนรวม
+
+4. โปรแกรมคำนวณค่าเฉลี่ยโดยใช้สูตร
+
+   Average = Total Score / Number of Students
+
+5. โปรแกรมแสดงคะแนนรวมและค่าเฉลี่ยออกทางหน้าจอ
+
+## Example
+
+Input:
+
+* Score 1 = 70
+* Score 2 = 80
+* Score 3 = 65
+* Score 4 = 90
+* Score 5 = 75
+
+Output:
+
+* Total score = 380
+* Average score = 76.0
+
+Enter score 1: 70
+Enter score 2: 80
+Enter score 3: 65
+Enter score 4: 90
+Enter score 5: 75
+Total score = 380
+Average score = 76.0
+
+7.# Student Name Search Program
+
+## Description
+
+โปรแกรมนี้ใช้ Array สำหรับเก็บรายชื่อนักศึกษา 5 คน และให้ผู้ใช้ป้อนชื่อที่ต้องการค้นหา จากนั้นโปรแกรมจะตรวจสอบว่าชื่อนั้นมีอยู่ใน Array หรือไม่
+
+## Program Conditions
+
+* กำหนดรายชื่อนักศึกษา 5 คนไว้ใน Array
+* รับชื่อที่ต้องการค้นหาจากผู้ใช้
+* ตรวจสอบว่าชื่อนั้นมีอยู่ใน Array หรือไม่
+* หากพบชื่อที่ค้นหา ให้แสดงคำว่า **Found**
+* หากไม่พบชื่อที่ค้นหา ให้แสดงคำว่า **Not Found**
+
+## How it works
+
+1. โปรแกรมสร้าง Array สำหรับเก็บรายชื่อนักศึกษา 5 คน
+2. ผู้ใช้ป้อนชื่อที่ต้องการค้นหา
+3. โปรแกรมใช้การวนลูปตรวจสอบชื่อทีละรายการใน Array
+4. หากพบชื่อที่ตรงกัน โปรแกรมจะแสดงคำว่า **Found**
+5. หากตรวจสอบครบทุกชื่อแล้วยังไม่พบ โปรแกรมจะแสดงคำว่า **Not Found**
+
+## Example
+
+Input:
+
+* Somchai
+
+Output:
+
+* Found
+
+Enter name to search: Somchai
+Found
+
+8public class DebugExample {
+
+    public static void main(String[] args) {
+
+        int[] numbers = {10, 20, 30, 40, 50};
+
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.println(numbers[i]);
+        }
+
+    }
+}
+
+9
+# Count Even and Odd Numbers Program
+
+## Description
+
+โปรแกรมนี้รับตัวเลขจำนวนเต็ม 10 จำนวนจากผู้ใช้ เก็บข้อมูลไว้ใน Array และตรวจสอบว่ามีเลขคู่และเลขคี่จำนวนเท่าใด
+
+## Program Conditions
+
+* รับตัวเลขจำนวนเต็ม 10 จำนวน
+* เก็บข้อมูลไว้ใน Array
+* ตรวจสอบว่าแต่ละจำนวนเป็นเลขคู่หรือเลขคี่
+* นับจำนวนเลขคู่และเลขคี่
+* แสดงผลจำนวนเลขคู่และเลขคี่
+
+## How it works
+
+1. โปรแกรมสร้าง Array ขนาด 10 ช่องสำหรับเก็บตัวเลข
+2. ผู้ใช้ป้อนตัวเลขทีละจำนวนจนครบ 10 จำนวน
+3. โปรแกรมตรวจสอบแต่ละตัวเลขด้วยการใช้ตัวดำเนินการ `%`
+4. หากหารด้วย 2 ลงตัว จะนับเป็นเลขคู่
+5. หากหารด้วย 2 ไม่ลงตัว จะนับเป็นเลขคี่
+6. โปรแกรมแสดงจำนวนเลขคู่และเลขคี่ทั้งหมด
+
+## Example
+
+Output:
+
+* Even count = 5
+* Odd count = 5
+
+Enter number 2: 15
+Enter number 3: 8
+Enter number 4: 7
+Enter number 5: 20
+Enter number 6: 11
+Enter number 7: 14
+Enter number 8: 9
+Enter number 9: 2
+Enter number 10: 5
+Even count = 5
+Odd count = 5
